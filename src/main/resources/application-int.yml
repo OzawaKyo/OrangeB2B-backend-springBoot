@@ -1,0 +1,60 @@
+spring:
+  application:
+    name: tripleD
+  datasource:
+    url: jdbc:postgresql://ec2-3-91-127-228.compute-1.amazonaws.com:5432/d6a0jmk20sgldi
+    username: drysndvcerutac
+    password: 0b8dc87406ac20c8f7e0fddadc3e3286c27a8b35a61970eb18244e362b6f1c2e
+  jpa:
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: email
+    password: password
+    sign: tripleD
+    location: None
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+security:
+  public:
+    endpoint:
+      /tripleD/api/api-docs/**,
+      /tripleD/api/swagger-ui/**,
+      /tripleD/api/accounts/login,
+      /tripleD/api/accounts/signUp
+  jwt:
+    secret: secret
+    expiration:
+      time: 2592000000
+  cors:
+    allowed:
+      origins: http://localhost:4200,http://127.0.0.1:4200,*
+      methods: HEAD,GET,POST,PUT,DELETE,PATCH
+      headers: Accept,Origin,Content-Type,Depth,User-Agent,If-Modified-Since,Cache-Control,Authorization,X-Req,X-File-Size,X-Requested-With,X-File-Name
+
+
+
+
+springdoc:
+  swagger-ui:
+    path: /tripleD/api/swagger-ui
+  api-docs:
+    path: /tripleD/api/api-docs
+
+server:
+  port: ${PORT:5000}
+
+default:
+  role: DEFAULT
