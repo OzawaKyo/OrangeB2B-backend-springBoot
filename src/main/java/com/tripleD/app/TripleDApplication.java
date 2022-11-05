@@ -28,10 +28,10 @@ private AccountRepository accountRepository;
 	@Override
 	public void run(String... args) throws Exception {
 
-	//	Role role = new Role("ADMIN");
-	//	Account mohamed = new Account("root",bCryptPasswordEncoder.encode("root"));
-	//mohamed.setRole(role);
-	//	accountRepository.save(mohamed);
+		Role role = new Role("ADMIN");
+		Account mohamed = new Account("root",bCryptPasswordEncoder.encode("root"));
+	mohamed.setRole(role);
+		accountRepository.save(mohamed);
 		
 	}
 }
